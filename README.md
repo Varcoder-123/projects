@@ -47,6 +47,12 @@ The datasource URL, username, and password were configured according to the Azur
 
 ---
 
+## 🔍 Step 5: Code Quality Analysis with SonarQube
+
+Configured SonarQube as part of the Jenkins CI/CD pipeline to perform automated static code analysis. The first scan reported **13 issues**, including code smells and potential bugs. I analyzed each finding, implemented the recommended fixes, and successfully improved the project's maintainability and code quality.
+
+---
+
 # 🚧 Challenges Faced & Key Learnings
 
 ### 📌 Understanding the Project Workflow
