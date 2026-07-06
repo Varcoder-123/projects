@@ -26,4 +26,8 @@ resource "azurerm_network_security_rule" "rules" {
   network_security_group_name = azurerm_network_security_group.app_nsg.name
 }
 
-# #NSG is attached to the subnet rather than the nic level becaue of the scalability and centralized governance. 
+resource "azurerm_subnet_network_security_group_association" "app_subnet_nsg_assoc" {
+  subnet_id                 = var.app_subnet_id
+  network_security_group_id = azurerm_network_security_group.app_nsg.id
+}
+#NSG is attached to the subnet rather than the nic level becaue of the scalability and centralized governance. 

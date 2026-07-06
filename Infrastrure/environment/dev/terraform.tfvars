@@ -48,3 +48,6 @@ security_rules = [
     destination_address_prefix = "*"
   }
 ]
+
+#Compute configuration
+app_nic_name = "app-nic"

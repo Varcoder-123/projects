@@ -23,3 +23,7 @@ variable "security_rules" {
     destination_address_prefix = string
   }))
 }
+
+variable "app_subnet_id" {
+  type = string
+}

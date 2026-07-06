@@ -67,3 +67,7 @@ variable "security_rules" {
     destination_address_prefix = string
   }))
 }
+
+variable "app_nic_name" {
+  type = string
+}
