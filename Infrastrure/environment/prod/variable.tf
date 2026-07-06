@@ -15,11 +15,6 @@ variable "vnet_name" {
   type        = string
 }
 
-variable "location" {
-  description = "Azure region for resources"
-  type        = string
-}
-
 variable "address_space" {
   description = "Address space for the virtual network"
   type        = list(string)
