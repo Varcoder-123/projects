@@ -11,3 +11,11 @@ module "network" {
   db_subnet_name      = var.db_subnet_name
   db_subnet_prefix    = var.db_subnet_prefix
 }
+
+module "security" {
+  source              = "../../modules/security"
+  app_nsg_name        = var.app_nsg_name
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  security_rules      = var.security_rules
+}

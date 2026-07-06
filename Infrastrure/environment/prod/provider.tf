@@ -4,5 +4,5 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "rg" {
   name     = "devops-rg"
-  location = var.location
+  location = "East US"
 }
