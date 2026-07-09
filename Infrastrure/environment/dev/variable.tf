@@ -71,3 +71,54 @@ variable "security_rules" {
 variable "app_nic_name" {
   type = string
 }
+
+variable "vm_name" {
+  type = string
+}
+
+variable "vm_size" {
+  type = string
+}
+
+variable "vm_admin_username" {
+  type = string
+}
+
+variable "vm_admin_password" {
+  type = string
+  sensitive = true
+}
+
+variable "app_nic_name" {
+  type = string
+}
+
+variable "public_ip_name" {
+  type = string
+}
+
+variable "mysql_dns_name" {
+  type = string
+}
+
+variable "mysql_dns_link_name" {
+  type = string
+}
+
+variable "mysql_server_name" {
+  type = string
+}
+
+variable "mysql_admin_username" {
+  type = string
+}
+
+variable "mysql_admin_password" {
+  type      = string
+  sensitive = true
+}
+
+variable "mysql_database_name" {
+  type = string
+}
+

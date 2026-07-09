@@ -51,3 +51,17 @@ security_rules = [
 
 #Compute configuration
 app_nic_name = "app-nic"
+vm_name = "java-app-vm"
+vm_size = "Standard_B2ls_v2"
+vm_admin_username = "azureuser"
+vm_admin_password = "Vicky1867@123"
+public_ip_name = "app-public-ip"
+
+#Database configuration
+mysql_dns_name = "mysql.private.mysql.database.azure.com"
+mysql_dns_link_name = "mysql-dns-link"
+mysql_server_name = "vigneshmysqlserver123"
+mysql_admin_username = "mysqladmin"
+mysql_admin_password = "Mysql@123456"
+mysql_database_name = "ecommercedb"
+

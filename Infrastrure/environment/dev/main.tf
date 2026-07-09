@@ -28,4 +28,22 @@ module "compute" {
   app_nic_name        = var.app_nic_name
   app_subnet_id       = module.network.app_subnet_id
   public_subnet_id    = module.network.public_subnet_id
+  vm_name             = var.vm_name
+  vm_size             = var.vm_size
+  vm_admin_username   = var.vm_admin_username
+  vm_admin_password   = var.vm_admin_password
+  public_ip_name      = var.public_ip_name
+}
+
+module "mysql" {
+  source              = "../../modules/mysql"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  mysql_dns_name      = var.mysql_dns_name
+  mysql_dns_link_name = var.mysql_dns_link_name
+  mysql_server_name   = var.mysql_server_name
+  mysql_admin_username = var.mysql_admin_username
+  mysql_admin_password = var.mysql_admin_password
+  mysql_database_name  = var.mysql_database_name
+  db_subnet_id         = module.network.db_subnet_id
 }

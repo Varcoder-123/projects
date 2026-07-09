@@ -20,3 +20,28 @@ variable "public_subnet_id" {
   description = "The ID of the public subnet to associate with the network interface"
   type        = string
 }
+
+variable "vm_name" {
+  description = "The name of the virtual machine"
+  type        = string
+}
+
+variable "vm_size" {
+  description = "The size of the virtual machine"
+  type        = string
+}
+
+variable "vm_admin_username" {
+  description = "The admin username for the virtual machine"
+  type        = string
+}
+
+variable "vm_admin_password" {
+  description = "The admin password for the virtual machine"
+  type        = string
+}
+
+variable "public_ip_name" {
+  description = "The name of the public IP address"
+  type        = string
+}
