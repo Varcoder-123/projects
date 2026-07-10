@@ -7,7 +7,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "mysql_dns_link" {
   name                  = var.mysql_dns_link_name
   private_dns_zone_name = azurerm_private_dns_zone.mysql_dns.name
   resource_group_name   = var.resource_group_name
-  virtual_network_id    = var.db_subnet_id
+  virtual_network_id    = var.vnet_id
 }
 
 resource "azurerm_mysql_flexible_server" "mysql" {
