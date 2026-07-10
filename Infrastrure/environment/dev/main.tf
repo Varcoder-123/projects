@@ -34,8 +34,8 @@ module "compute" {
   vm_admin_password   = var.vm_admin_password
 }
 
-module "mysql" {
-  source              = "../../modules/mysql"
+module "database" {
+  source              = "../../modules/database"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   mysql_dns_name      = var.mysql_dns_name
