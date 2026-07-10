@@ -32,7 +32,6 @@ module "compute" {
   vm_size             = var.vm_size
   vm_admin_username   = var.vm_admin_username
   vm_admin_password   = var.vm_admin_password
-  public_ip_name      = var.public_ip_name
 }
 
 module "mysql" {
@@ -46,4 +45,13 @@ module "mysql" {
   mysql_admin_password = var.mysql_admin_password
   mysql_database_name  = var.mysql_database_name
   db_subnet_id         = module.network.db_subnet_id
+}
+
+module "loadbalancer" {
+  source              = "../../modules/loadbalancer"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+  app_lb_name         = var.app_lb_name
+  public_ip_name      = var.public_ip_name
+  backend_pool_name   = var.backend_pool
 }

@@ -93,10 +93,6 @@ variable "app_nic_name" {
   type = string
 }
 
-variable "public_ip_name" {
-  type = string
-}
-
 variable "mysql_dns_name" {
   type = string
 }
@@ -121,4 +117,17 @@ variable "mysql_admin_password" {
 variable "mysql_database_name" {
   type = string
 }
+
+variable "app_lb_name" {
+  type = string
+}
+
+variable "public_ip_name" {
+  type = string
+}
+
+variable "backend_pool" {
+  type = string
+}
+
 

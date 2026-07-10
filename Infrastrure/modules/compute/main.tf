@@ -10,8 +10,6 @@ resource "azurerm_network_interface" "app_nic" {
     subnet_id = var.app_subnet_id
 
     private_ip_address_allocation = "Dynamic"
-
-    public_ip_address_id = azurerm_public_ip.vm_pip.id
   }
 }
 
@@ -45,16 +43,5 @@ resource "azurerm_linux_virtual_machine" "vm" {
     sku       = "22_04-lts"
     version   = "latest"
   }
-}
-
-resource "azurerm_public_ip" "vm_pip" {
-
-  name                = var.public_ip_name
-  location            = var.location
-  resource_group_name = var.resource_group_name
-
-  allocation_method = "Static"
-
-  sku = "Standard"
 }
 

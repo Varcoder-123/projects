@@ -40,8 +40,3 @@ variable "vm_admin_password" {
   description = "The admin password for the virtual machine"
   type        = string
 }
-
-variable "public_ip_name" {
-  description = "The name of the public IP address"
-  type        = string
-}
