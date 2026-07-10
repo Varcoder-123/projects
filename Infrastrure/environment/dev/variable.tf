@@ -89,10 +89,6 @@ variable "vm_admin_password" {
   sensitive = true
 }
 
-variable "app_nic_name" {
-  type = string
-}
-
 variable "mysql_dns_name" {
   type = string
 }
