@@ -3,6 +3,6 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "dev-rg"
+  name     = "terraform-backend-rg"
   location = "Japan East"
 }
