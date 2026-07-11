@@ -4,8 +4,6 @@ module "network" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   address_space       = var.address_space
-  public_subnet_name  = var.public_subnet_name
-  public_subnet_prefix = var.public_subnet_prefix
   app_subnet_name     = var.app_subnet_name
   app_subnet_prefix   = var.app_subnet_prefix
   db_subnet_name      = var.db_subnet_name

@@ -7,6 +7,8 @@ resource "azurerm_public_ip" "vm_pip" {
   allocation_method = "Static"
 
   sku = "Standard"
+
+  domain_name_label = var.domain_name_label
 }
 
 resource "azurerm_lb" "app_lb" {

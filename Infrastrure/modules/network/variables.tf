@@ -14,14 +14,6 @@ variable "address_space" {
   type = list(string)
 }
 
-variable "public_subnet_name" {
-  type = string
-}
-
-variable "public_subnet_prefix" {
-  type = list(string)
-}
-
 variable "app_subnet_name" {
   type = string
 }
@@ -36,4 +28,12 @@ variable "db_subnet_name" {
 
 variable "db_subnet_prefix" {
   type = list(string)
+}
+
+variable "nat_public_ip_name" {
+  type = string
+}
+
+variable "nat_gateway_name" {
+  type = string
 }

@@ -4,12 +4,12 @@ module "network" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   address_space       = var.address_space
-  public_subnet_name  = var.public_subnet_name
-  public_subnet_prefix = var.public_subnet_prefix
   app_subnet_name     = var.app_subnet_name
   app_subnet_prefix   = var.app_subnet_prefix
   db_subnet_name      = var.db_subnet_name
   db_subnet_prefix    = var.db_subnet_prefix
+  nat_public_ip_name  = var.nat_public_ip_name
+  nat_gateway_name    = var.nat_gateway_name
 }
 
 module "security" {
@@ -55,4 +55,5 @@ module "loadbalancer" {
   app_lb_name         = var.app_lb_name
   public_ip_name      = var.public_ip_name
   backend_pool_name   = var.backend_pool
+  domain_name_label   = var.domain_name_label
 }

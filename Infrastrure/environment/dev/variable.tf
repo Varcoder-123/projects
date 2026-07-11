@@ -20,16 +20,6 @@ variable "address_space" {
   type        = list(string)
 }
 
-variable "public_subnet_name" {
-  description = "Name of the public subnet"
-  type        = string
-}
-
-variable "public_subnet_prefix" {
-  description = "Address prefix for the public subnet"
-  type        = list(string)
-}
-
 variable "app_subnet_name" {
   description = "Name of the application subnet"
   type        = string
@@ -126,4 +116,14 @@ variable "backend_pool" {
   type = string
 }
 
+variable "domain_name_label" {
+  type = string
+}
 
+variable "nat_public_ip_name" {
+  type = string
+}
+
+variable "nat_gateway_name" {
+  type = string
+}

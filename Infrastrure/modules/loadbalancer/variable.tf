@@ -17,3 +17,7 @@ variable "app_lb_name" {
 variable "backend_pool_name" {
   type = string
 }
+
+variable "domain_name_label" {
+  type = string
+}

@@ -6,14 +6,6 @@ resource "azurerm_virtual_network" "vnet" {
   address_space = var.address_space
 }
 
-resource "azurerm_subnet" "public_subnet" {
-  name                 = var.public_subnet_name
-  resource_group_name  = var.resource_group_name
-  virtual_network_name = azurerm_virtual_network.vnet.name
-
-  address_prefixes = var.public_subnet_prefix
-}
-
 resource "azurerm_subnet" "app_subnet" {
   name                 = var.app_subnet_name
   resource_group_name  = var.resource_group_name
@@ -40,4 +32,37 @@ resource "azurerm_subnet" "db_subnet" {
       ]
     }
   }
+}
+
+resource "azurerm_public_ip" "nat_pip" {
+
+  name                = var.nat_public_ip_name
+  location            = var.location
+  resource_group_name = var.resource_group_name
+
+  allocation_method = "Static"
+  sku               = "Standard"
+}
+
+resource "azurerm_nat_gateway" "nat_gateway" {
+
+  name                = var.nat_gateway_name
+  location            = var.location
+  resource_group_name = var.resource_group_name
+
+  sku_name = "Standard"
+}
+
+resource "azurerm_nat_gateway_public_ip_association" "nat_pip_assoc" {
+
+  nat_gateway_id       = azurerm_nat_gateway.nat_gateway.id
+  public_ip_address_id = azurerm_public_ip.nat_pip.id
+
+}
+
+resource "azurerm_subnet_nat_gateway_association" "app_nat_assoc" {
+
+  subnet_id      = azurerm_subnet.app_subnet.id
+  nat_gateway_id = azurerm_nat_gateway.nat_gateway.id
+
 }
