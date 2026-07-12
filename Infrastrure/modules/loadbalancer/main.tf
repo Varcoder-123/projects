@@ -72,3 +72,12 @@ resource "azurerm_lb_rule" "http_rule" {
   probe_id = azurerm_lb_probe.http_probe.id
 
 }
+
+resource "azurerm_network_interface_backend_address_pool_association" "app_lb_assoc" {
+
+  network_interface_id    = var.app_nic_id
+
+  ip_configuration_name   = "internal"
+
+  backend_address_pool_id = azurerm_lb_backend_address_pool.backend_pool.id
+}

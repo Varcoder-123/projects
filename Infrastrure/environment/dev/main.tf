@@ -55,4 +55,5 @@ module "loadbalancer" {
   public_ip_name      = var.public_ip_name
   backend_pool_name   = var.backend_pool
   domain_name_label   = var.domain_name_label
+  app_nic_id          = module.compute.app_nic_id
 }
