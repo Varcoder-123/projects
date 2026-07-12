@@ -27,7 +27,6 @@ module "compute" {
   resource_group_name = azurerm_resource_group.rg.name
   app_nic_name        = var.app_nic_name
   app_subnet_id       = module.network.app_subnet_id
-  public_subnet_id    = module.network.public_subnet_id
   vm_name             = var.vm_name
   vm_size             = var.vm_size
   vm_admin_username   = var.vm_admin_username

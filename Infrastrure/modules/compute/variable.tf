@@ -16,11 +16,6 @@ variable "app_subnet_id" {
   type        = string
 }
 
-variable "public_subnet_id" {
-  description = "The ID of the public subnet to associate with the network interface"
-  type        = string
-}
-
 variable "vm_name" {
   description = "The name of the virtual machine"
   type        = string
