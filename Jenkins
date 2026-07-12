@@ -15,7 +15,8 @@ pipeline {
         stage('git hub') {
             steps {
                 echo 'pulling the code'
-                git 'https://github.com/Varcoder-123/projects.git'
+                git branch: 'feature',
+                git 'https://github.com/Varcoder-123/Java-3-tier-Application.git
             }
         }
         stage('Build and package') {
