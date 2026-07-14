@@ -77,11 +77,14 @@
 		</plugins>
 	</build>
 <distributionManagement>
-    <repository>
-        <id>central</id>
-        <name>a0nymgefaiwwu-artifactory-primary-0-releases</name>
-        <url>https://edshopdpt8.jfrog.io/artifactory/libs-release-local</url>
-    </repository>
+        <repository>
+            <id>maven-releases</id>
+            <url>http://20.238.26.164:8082/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <url>http://20.238.26.164:8082/repository/maven-snapshots/</url>
+        </snapshotRepository>
 </distributionManagement> 
 
 </project>
