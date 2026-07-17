@@ -1,15 +1,16 @@
-vm_password = "Vicky1867@123"
-mysql_password = "Mysql@123456"
-
 #network configuration
 vnet_name = "dev-vnet"
 address_space = ["10.0.0.0/16"]
+public_subnet_name = "AzureBastionSubnet"
+public_subnet_prefix = ["10.0.1.0/24"]
 app_subnet_name = "app-subnet"
 app_subnet_prefix = ["10.0.4.0/24"]
 db_subnet_name = "db-subnet"
 db_subnet_prefix = ["10.0.5.0/24"]
 nat_public_ip_name = "nat-public-ip"
 nat_gateway_name = "nat-gateway"
+bastion_pip_name = "bastion-public-ip"
+bastion_name = "bastion-host"
 
 #NSG configuration
 app_nsg_name = "app-nsg"
@@ -80,4 +81,5 @@ app_lb_name = "app-load-balancer"
 public_ip_name = "app-public-ip"
 backend_pool = "backend-pool-dev"
 domain_name_label = "java3tier-demo"
+
 

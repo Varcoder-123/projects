@@ -1,9 +1,9 @@
-variable "storage_account_name" {
-  description = "The name of the storage account to be created for the Terraform backend."
+variable "vm_admin_password" {
+  description = "The password for the VM administrator account."
   type        = string
 }
 
-variable "container_name" {
-  description = "The name of the storage container to be created for the Terraform backend."
+variable "mysql_password" {
+  description = "The password for the MySQL administrator account."
   type        = string
 }

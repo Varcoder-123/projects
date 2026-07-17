@@ -37,3 +37,21 @@ variable "nat_public_ip_name" {
 variable "nat_gateway_name" {
   type = string
 }
+
+variable "public_subnet_name" {
+  description = "Name of the public subnet"
+  type        = string
+}
+
+variable "public_subnet_prefix" {
+  description = "Address prefix for the public subnet"
+  type        = list(string)
+}
+
+variable "bastion_pip_name" {
+  type = string
+}
+
+variable "bastion_name" {
+  type = string
+}

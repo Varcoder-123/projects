@@ -1,15 +1,34 @@
+data "azurerm_key_vault" "kv" {
+  name                = "java3tier-keyvault"
+  resource_group_name = "your-rg-name"
+}
+
+data "azurerm_key_vault_secret" "vm_password" {
+  name         = "vm-admin-password"
+  key_vault_id = data.azurerm_key_vault.kv.id
+}
+
+data "azurerm_key_vault_secret" "mysql_password" {
+  name         = "mysql-password"
+  key_vault_id = data.azurerm_key_vault.kv.id
+}
+
 module "network" {
   source              = "../../modules/network"
   vnet_name           = var.vnet_name
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   address_space       = var.address_space
+  public_subnet_name   = var.public_subnet_name
+  public_subnet_prefix = var.public_subnet_prefix
   app_subnet_name     = var.app_subnet_name
   app_subnet_prefix   = var.app_subnet_prefix
   db_subnet_name      = var.db_subnet_name
   db_subnet_prefix    = var.db_subnet_prefix
   nat_public_ip_name  = var.nat_public_ip_name
   nat_gateway_name    = var.nat_gateway_name
+  bastion_pip_name    = var.bastion_pip_name
+  bastion_name        = var.bastion_name
 }
 
 module "security" {
@@ -30,7 +49,7 @@ module "compute" {
   vm_name             = var.vm_name
   vm_size             = var.vm_size
   vm_admin_username   = var.vm_admin_username
-  vm_admin_password   = var.vm_admin_password
+  vm_admin_password   = data.azurerm_key_vault_secret.vm_password.value
 }
 
 module "database" {
@@ -41,7 +60,7 @@ module "database" {
   mysql_dns_link_name = var.mysql_dns_link_name
   mysql_server_name   = var.mysql_server_name
   mysql_admin_username = var.mysql_admin_username
-  mysql_admin_password = var.mysql_admin_password
+  mysql_admin_password = data.azurerm_key_vault_secret.mysql_password.value
   mysql_database_name  = var.mysql_database_name
   vnet_id              = module.network.vnet_id
   db_subnet_id         = module.network.db_subnet_id 

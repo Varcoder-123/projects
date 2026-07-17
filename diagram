@@ -1,0 +1,147 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="4Pwt7_onInpv-cfZMDJn" name="Page-2">
+    <mxGraphModel dx="2109" dy="1327" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="LSQ-4Al87gfjk_XZkSKB-19" parent="1" style="verticalAlign=top;align=left;spacingLeft=10;dashed=0;fillColor=#F2F9FF;strokeColor=#5EA2D6;strokeWidth=2;fontSize=11;fontColor=#004B87;fontStyle=1" value="" vertex="1">
+          <mxGeometry height="790" width="1820" x="80" y="715" as="geometry" />
+        </mxCell>
+        <mxCell id="rg" parent="1" style="verticalAlign=top;align=left;spacingLeft=10;dashed=1;fillColor=none;strokeColor=#0078D4;strokeWidth=2;fontSize=12;fontColor=#0078D4;fontStyle=1" value="Resource Group: dev-rg&#xa;Location: Japan East" vertex="1">
+          <mxGeometry height="640" width="1020" x="364" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="vnet" parent="rg" style="verticalAlign=top;align=left;spacingLeft=10;dashed=0;fillColor=#F2F9FF;strokeColor=#5EA2D6;strokeWidth=2;fontSize=11;fontColor=#004B87;fontStyle=1" value="VNet: dev-vnet&#xa;CIDR: 10.0.0.0/16" vertex="1">
+          <mxGeometry height="560" width="740" x="240" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="app_subnet" parent="vnet" style="verticalAlign=top;align=left;spacingLeft=10;dashed=1;fillColor=#FFFFFF;strokeColor=#7FBA00;strokeWidth=1.5;fontSize=11;fontColor=#333333;" value="App Subnet: app-subnet&#xa;CIDR: 10.0.4.0/24 (Subnet NSG Protected)" vertex="1">
+          <mxGeometry height="480" width="357.53" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="app_nsg" parent="app_subnet" style="dashed=0;fillColor=none;strokeColor=none;fontColor=#333333;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=outside;align=center;image=img/lib/azure2/networking/Network_Security_Groups.svg;shape=image;" value="" vertex="1">
+          <mxGeometry height="50" width="50" x="240" y="-20" as="geometry" />
+        </mxCell>
+        <mxCell id="vm_os_image" parent="app_subnet" style="dashed=0;fillColor=none;strokeColor=none;fontColor=#333333;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=outside;align=center;image=img/lib/azure2/compute/VM_Images.svg;shape=image;" value="" vertex="1">
+          <mxGeometry height="50" width="50" x="60" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="app_vm" parent="app_subnet" style="dashed=0;fillColor=none;strokeColor=none;fontColor=#333333;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=outside;align=center;image=img/lib/azure2/compute/Virtual_Machines.svg;shape=image;" value="" vertex="1">
+          <mxGeometry height="50" width="50" x="60" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="app_nic" parent="app_subnet" style="dashed=0;fillColor=none;strokeColor=none;fontColor=#333333;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=outside;align=center;image=img/lib/azure2/networking/Network_Interfaces.svg;shape=image;" value="" vertex="1">
+          <mxGeometry height="50" width="50" x="250" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="nat_gw" parent="app_subnet" style="dashed=0;fillColor=none;strokeColor=none;fontColor=#333333;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=outside;align=center;image=img/lib/azure2/networking/NAT_Gateways.svg;shape=image;" value="" vertex="1">
+          <mxGeometry height="50" width="98" x="216" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="gX4QP2bDdXvhLOqR0bhz-5" parent="app_subnet" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/compute/Virtual_Machine.svg;" value="" vertex="1">
+          <mxGeometry height="44" width="47.44" x="60" y="243" as="geometry" />
+        </mxCell>
+        <mxCell id="gX4QP2bDdXvhLOqR0bhz-8" parent="app_subnet" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="NIC: app-nic&lt;br&gt;Pool: backend-pool-dev" vertex="1">
+          <mxGeometry height="80" width="182.5" x="175.02999999999997" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="gX4QP2bDdXvhLOqR0bhz-10" parent="app_subnet" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="VM: java-app-vm&lt;br&gt;Size: Standard_B2ls_v2&lt;br&gt;Disk: Premium_LRS&lt;br&gt;Ubuntu 22.04 LTS" vertex="1">
+          <mxGeometry height="70" width="230" x="-30" y="287" as="geometry" />
+        </mxCell>
+        <mxCell id="gX4QP2bDdXvhLOqR0bhz-11" parent="app_subnet" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/NAT.svg;" value="" vertex="1">
+          <mxGeometry height="60" width="60" x="236" y="354" as="geometry" />
+        </mxCell>
+        <mxCell id="gX4QP2bDdXvhLOqR0bhz-12" parent="app_subnet" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="NAT Gateway&lt;br&gt;nat-gateway" vertex="1">
+          <mxGeometry height="30" width="100" x="216" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="db_subnet" parent="vnet" style="verticalAlign=top;align=left;spacingLeft=10;dashed=1;fillColor=#FFFFFF;strokeColor=#E81123;strokeWidth=1.5;fontSize=11;fontColor=#333333;" value="Database Subnet: db-subnet (Delegated)&#xa;CIDR: 10.0.5.0/24" vertex="1">
+          <mxGeometry height="480" width="260" x="440" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="mysql_db" parent="db_subnet" style="dashed=0;fillColor=none;strokeColor=none;fontColor=#333333;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=outside;align=center;image=img/lib/azure2/databases/Azure_Database_MySQL_Server.svg;shape=image;" value="n" vertex="1">
+          <mxGeometry height="50" width="50" x="50" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="dns_zone" parent="db_subnet" style="dashed=0;fillColor=none;strokeColor=none;fontColor=#333333;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=outside;align=center;image=img/lib/azure2/networking/Private_DNS_Zones.svg;shape=image;" value="" vertex="1">
+          <mxGeometry height="50" width="50" x="160" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="gX4QP2bDdXvhLOqR0bhz-13" parent="db_subnet" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="MySQL Flex Server: vigneshmysqlserver123&lt;br&gt;DB: ecommercedb&lt;br&gt;Backup: 7 days Retention" vertex="1">
+          <mxGeometry height="60" width="240" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="gX4QP2bDdXvhLOqR0bhz-25" parent="db_subnet" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/networking/DNS_Zones.svg;" value="" vertex="1">
+          <mxGeometry height="54" width="54" x="158" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="gX4QP2bDdXvhLOqR0bhz-26" parent="db_subnet" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Private DNS Zone&lt;br&gt;Zone: mysql.private.mysql.database.azure.com&lt;br&gt;Link: mysql-dns-link" vertex="1">
+          <mxGeometry width="230" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="lb_pip" parent="rg" style="dashed=0;fillColor=none;strokeColor=none;fontColor=#333333;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=outside;align=center;image=img/lib/azure2/networking/Public_IP_Addresses.svg;shape=image;" value="&#xa;&#xa;" vertex="1">
+          <mxGeometry height="50" width="50" x="40" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="app_lb" parent="rg" style="dashed=0;fillColor=none;strokeColor=none;fontColor=#333333;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=outside;align=center;image=img/lib/azure2/networking/Load_Balancers.svg;shape=image;" value="" vertex="1">
+          <mxGeometry height="50" width="50" x="140" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="nat_pip" parent="rg" style="dashed=0;fillColor=none;strokeColor=none;fontColor=#333333;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=outside;align=center;image=img/lib/azure2/networking/Public_IP_Addresses.svg;shape=image;" value="" vertex="1">
+          <mxGeometry height="50" width="50" x="57.5" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="gX4QP2bDdXvhLOqR0bhz-1" parent="rg" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Public IP: app-public-ip&lt;br&gt;DNS: java3tier-demo" vertex="1">
+          <mxGeometry height="60" width="145" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="gX4QP2bDdXvhLOqR0bhz-2" parent="rg" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Load Balancer: app-load-balancer&lt;br&gt;SKU: Standard&lt;br&gt;Frontend: public-frontend&lt;br&gt;Rule: http-rule (80 ➔ 8080)" vertex="1">
+          <mxGeometry height="50" width="185" x="50" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gX4QP2bDdXvhLOqR0bhz-3" parent="rg" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="NAT Public IP&lt;br&gt;nat-public-ip" vertex="1">
+          <mxGeometry height="30" width="85" x="107.5" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="gX4QP2bDdXvhLOqR0bhz-4" parent="rg" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="NSG Gateway: app-nsg&lt;br&gt;Rules: SSH(22), HTTP(80),&lt;br&gt;HTTPS(443), JavaApp(8080)" vertex="1">
+          <mxGeometry height="30" width="280" x="410" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="gX4QP2bDdXvhLOqR0bhz-23" edge="1" parent="rg" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;curved=0;strokeColor=#0078D4;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="57.5" y="384.7" as="sourcePoint" />
+            <mxPoint x="-22.5" y="384.7" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="backend_rg" parent="1" style="verticalAlign=top;align=left;spacingLeft=10;dashed=1;fillColor=none;strokeColor=#F25022;strokeWidth=2;fontSize=12;fontColor=#F25022;fontStyle=1" value="Resource Group: terraform-backend-rg&#xa;Location: Japan East (Remote State Storage)" vertex="1">
+          <mxGeometry height="240" width="270" x="1484" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="tf_storage" parent="backend_rg" style="dashed=0;fillColor=none;strokeColor=none;fontColor=#333333;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=outside;align=center;image=img/lib/azure2/storage/Storage_Accounts.svg;shape=image;" value="" vertex="1">
+          <mxGeometry height="50" width="51.92307692307693" x="109.03846153846155" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="gX4QP2bDdXvhLOqR0bhz-29" parent="backend_rg" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Azure Storage Account&lt;br&gt;Type: Blob Container&lt;br&gt;Use: Terraform State File" vertex="1">
+          <mxGeometry height="30" width="207.6923076923077" x="31.153846153846157" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" edge="1" parent="1" source="lb_pip" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0078D4;strokeWidth=2;" target="app_lb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" edge="1" parent="1" source="app_lb" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0078D4;strokeWidth=2;" target="app_nic">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" edge="1" parent="1" source="app_nic" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#7FBA00;strokeWidth=2;" target="app_vm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4" edge="1" parent="1" source="app_vm" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E81123;strokeWidth=1.5;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="909" y="1220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge5" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E81123;strokeWidth=1.5;exitX=0;exitY=0.5;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="878" y="1253" as="sourcePoint" />
+            <mxPoint x="447" y="1198" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge6" edge="1" parent="1" source="app_vm" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#7FBA00;strokeWidth=2;" target="mysql_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge7" edge="1" parent="1" source="mysql_db" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#B111D4;strokeWidth=1.5;dashed=1;" target="dns_zone">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gX4QP2bDdXvhLOqR0bhz-19" edge="1" parent="1" source="gX4QP2bDdXvhLOqR0bhz-16" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;curved=0;strokeColor=#0078D4;" target="lb_pip">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gX4QP2bDdXvhLOqR0bhz-16" parent="1" style="sketch=0;html=1;aspect=fixed;strokeColor=none;shadow=0;fillColor=#3B8DF1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;shape=mxgraph.gcp2.search" value="" vertex="1">
+          <mxGeometry height="60" width="59.4" x="264" y="1035" as="geometry" />
+        </mxCell>
+        <mxCell id="gX4QP2bDdXvhLOqR0bhz-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="java3tier-demo.japaneast.cloudapp.azure.com" vertex="1">
+          <mxGeometry height="50" width="250" x="104" y="1085" as="geometry" />
+        </mxCell>
+        <mxCell id="gX4QP2bDdXvhLOqR0bhz-21" parent="1" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/internet_cloud.svg;" value="" vertex="1">
+          <mxGeometry height="31.5" width="50" x="284" y="1160" as="geometry" />
+        </mxCell>
+        <mxCell id="gX4QP2bDdXvhLOqR0bhz-24" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Internet" vertex="1">
+          <mxGeometry height="30" width="60" x="279" y="1191.5" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

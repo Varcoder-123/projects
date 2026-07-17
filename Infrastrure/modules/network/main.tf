@@ -6,6 +6,14 @@ resource "azurerm_virtual_network" "vnet" {
   address_space = var.address_space
 }
 
+resource "azurerm_subnet" "public_subnet" {
+  name                 = var.public_subnet_name
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+
+  address_prefixes = var.public_subnet_prefix
+}
+
 resource "azurerm_subnet" "app_subnet" {
   name                 = var.app_subnet_name
   resource_group_name  = var.resource_group_name
@@ -65,4 +73,27 @@ resource "azurerm_subnet_nat_gateway_association" "app_nat_assoc" {
   subnet_id      = azurerm_subnet.app_subnet.id
   nat_gateway_id = azurerm_nat_gateway.nat_gateway.id
 
+}
+
+resource "azurerm_public_ip" "bastion_pip" {
+  name                = var.bastion_pip_name
+  location            = var.location
+  resource_group_name = var.resource_group_name
+
+  allocation_method = "Static"
+  sku               = "Standard"
+}
+
+resource "azurerm_bastion_host" "bastion" {
+  name                = var.bastion_name
+  location            = var.location
+  resource_group_name = var.resource_group_name
+
+  sku = "Standard"
+  
+  ip_configuration {
+    name                 = "bastion-ip-config"
+    subnet_id            = azurerm_subnet.public_subnet.id
+    public_ip_address_id = azurerm_public_ip.bastion_pip.id
+  }
 }
