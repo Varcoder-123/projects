@@ -1,6 +1,6 @@
 data "azurerm_key_vault" "kv" {
   name                = "java3tier-keyvault"
-  resource_group_name = "your-rg-name"
+  resource_group_name = "terraform-backend-rg"
 }
 
 data "azurerm_key_vault_secret" "vm_password" {
