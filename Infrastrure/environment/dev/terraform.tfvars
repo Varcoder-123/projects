@@ -50,7 +50,7 @@ security_rules = [
   },
   {
     name                       = "JavaApp"
-    priority                   = 300
+    priority                   = 400
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
