@@ -57,10 +57,18 @@ resource "azurerm_key_vault_secret" "vm_password" {
   name         = "vm-admin-password"
   value        = var.vm_admin_password
   key_vault_id = azurerm_key_vault.kv.id
+
+  depends_on = [
+    azurerm_key_vault_access_policy.admin
+  ]
 }
 
 resource "azurerm_key_vault_secret" "mysql_password" {
   name         = "mysql-password"
   value        = var.mysql_password
   key_vault_id = azurerm_key_vault.kv.id
+
+  depends_on = [
+    azurerm_key_vault_access_policy.admin
+  ]
 }
