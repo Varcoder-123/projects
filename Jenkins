@@ -34,6 +34,18 @@ pipeline {
                 }
             }
         }
+        stage('OWASP Dependency Check') {
+            steps {
+                echo 'Running OWASP Dependency Check...'
+                    dependencyCheck additionalArguments: '--scan Java-Login-App', nvdCredentialsId: 'OWASP', odcInstallation: 'DependencyCheck'
+            }
+        }
+        stage('Publish Dependency Report') {
+            steps {
+                echo 'Publishing Dependency Check Report...'               
+                    dependencyCheckPublisher pattern: '**/dependency-check-report.xml' 
+            }
+        }
         stage('SonarQube Analysis') {
             steps {
                 echo 'Analysis completed'
