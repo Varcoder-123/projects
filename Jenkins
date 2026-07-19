@@ -15,8 +15,7 @@ pipeline {
         stage('gitcheckout') {
             steps { 
                 echo 'pulling the code'
-                git branch: 'feature',
-                git 'https://github.com/Varcoder-123/Java-3-tier-Application.git
+                git branch: 'feature', url: 'https://github.com/Varcoder-123/Java-3-tier-Application.git'
             }
         }
         stage('Compile') {
@@ -35,14 +34,6 @@ pipeline {
                 }
             }
         }
-        stage('package') {
-            steps {
-                echo 'Building the code'
-                dir('Java-Login-App') {
-                    sh 'mvn package'
-                }
-            }
-        }
         stage('SonarQube Analysis') {
             steps {
                 echo 'Analysis completed'
@@ -58,6 +49,24 @@ pipeline {
                 timeout(time: 5, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
                 }
+            }
+        }
+        stage('package') {
+            steps {
+                echo 'Building the code'
+                dir('Java-Login-App') {
+                    sh 'mvn package'
+                }
+            }
+        }
+        stage('Upload the artifacts the nexus') {
+            steps {
+                echo 'Upload the artifacts the nexus'
+                dir('Java-Login-App'){
+                withMaven(globalMavenSettingsConfig: 'settings.xml', jdk: 'jdk17', maven: 'maven3', traceability: true) {
+                    sh 'mvn deploy'
+                }
+              }
             }
         }
         stage('Docker image') {
