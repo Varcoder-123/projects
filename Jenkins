@@ -110,5 +110,15 @@ pipeline {
                 }
             }
         }
+        stage('Deploy using Ansible') {
+            steps {
+                dir('ansible') {
+                    sh """
+                        ansible-playbook deploy.yml \
+                        --extra-vars "image_name=${DOCKER_IMAGE}"
+                    """
+                }
+            }
+        }
     }
 }
