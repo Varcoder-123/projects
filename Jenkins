@@ -8,7 +8,9 @@ pipeline {
 
     environment{
         DOCKERHUB_USERNAME = 'vicky1867'
-        DOCKER_IMAGE = "${DOCKERHUB_USERNAME}/vickstudio:v1"
+        IMAGE_NAME = 'vickstudio'
+        IMAGE_TAG = "${BUILD_NUMBER}"
+        DOCKER_IMAGE = "${DOCKERHUB_USERNAME}/${IMAGE_NAME}:${IMAGE_TAG}"
     }
 
     stages {
