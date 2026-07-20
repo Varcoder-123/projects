@@ -97,3 +97,13 @@ resource "azurerm_bastion_host" "bastion" {
     public_ip_address_id = azurerm_public_ip.bastion_pip.id
   }
 }
+
+resource "azurerm_virtual_network_peering" "app_to_devops" {
+  name                      = "app-to-devops"
+  resource_group_name       = var.resource_group_name
+  virtual_network_name      = azurerm_virtual_network.vnet.name
+  remote_virtual_network_id = var.devops_vnet_id
+
+  allow_virtual_network_access  = true 
+  allow_forwarded_traffic       = true
+}

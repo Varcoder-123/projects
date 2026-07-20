@@ -55,3 +55,8 @@ variable "bastion_pip_name" {
 variable "bastion_name" {
   type = string
 }
+
+variable "devops_vnet_id" {
+  description = "The ID of the DevOps virtual network to peer with"
+  type        = string
+}

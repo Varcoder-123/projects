@@ -13,6 +13,11 @@ data "azurerm_key_vault_secret" "mysql_password" {
   key_vault_id = data.azurerm_key_vault.kv.id
 }
 
+data "azurerm_virtual_network" "devops" {
+  name                = "testing-vnet"
+  resource_group_name = "Nexus"
+}
+
 module "network" {
   source              = "../../modules/network"
   vnet_name           = var.vnet_name
@@ -29,6 +34,7 @@ module "network" {
   nat_gateway_name    = var.nat_gateway_name
   bastion_pip_name    = var.bastion_pip_name
   bastion_name        = var.bastion_name
+  devops_vnet_id      = data.azurerm_virtual_network.devops.id
 }
 
 module "security" {
