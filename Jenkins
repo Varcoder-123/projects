@@ -114,7 +114,9 @@ pipeline {
             steps {
                 dir('ansible') {
                     sh """
-                        ansible-playbook deploy.yml \
+                        ansible-playbook \
+                        -i inventory \
+                        deploy.yml \
                         --extra-vars "image_name=${DOCKER_IMAGE}"
                     """
                 }
