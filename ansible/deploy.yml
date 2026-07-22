@@ -1,0 +1,27 @@
+- name: Deploy Java Application
+  hosts: app
+  become: yes
+
+  vars:
+    docker_image: "{{ image_name }}"
+
+  tasks:
+
+    - name: Pull latest Docker image
+      community.docker.docker_image:
+        name: "{{ docker_image }}"
+        source: pull
+
+    - name: Stop existing container
+      community.docker.docker_container:
+        name: java-app
+        state: absent
+
+    - name: Start container
+      community.docker.docker_container:
+        name: java-app
+        image: "{{ docker_image }}"
+        state: started
+        restart_policy: always
+        published_ports:
+          - "8080:8080"
