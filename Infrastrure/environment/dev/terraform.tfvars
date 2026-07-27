@@ -74,7 +74,7 @@ mysql_dns_link_name = "mysql-dns-link"
 mysql_server_name = "vigneshmysqlserver123"
 mysql_admin_username = "mysqladmin"
 mysql_admin_password = "Mysql@123456"
-mysql_database_name = "ecommercedb"
+mysql_database_name = "javaapp"
 
 #Load Balancer configuration
 app_lb_name = "app-load-balancer"
