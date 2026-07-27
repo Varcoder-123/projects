@@ -7,7 +7,7 @@ This project demonstrates an enterprise-grade DevOps CI/CD pipeline for deployin
 
 # Devops Tools used
 
-<img width="851" height="291" alt="Devops drawio" src="https://github.com/user-attachments/assets/57b5fca1-d4d9-44bf-9ae9-3c49a808c9ce" />
+<img width="972" height="292" alt="final drawio" src="https://github.com/user-attachments/assets/f00ee245-559f-412f-a8bd-f7e192c63497" />
 
 # Architecture Diagram
 
