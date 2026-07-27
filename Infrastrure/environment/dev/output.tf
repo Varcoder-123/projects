@@ -1,3 +1,3 @@
 output "domain_name" {
-  value = module.loadbalancer.domain_name_label
+  value = module.loadbalancer.domain_name
 }
