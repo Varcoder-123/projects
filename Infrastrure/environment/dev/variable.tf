@@ -62,11 +62,6 @@ variable "vm_admin_username" {
   type = string
 }
 
-variable "vm_admin_password" {
-  type = string
-  sensitive = true
-}
-
 variable "mysql_dns_name" {
   type = string
 }
@@ -81,11 +76,6 @@ variable "mysql_server_name" {
 
 variable "mysql_admin_username" {
   type = string
-}
-
-variable "mysql_admin_password" {
-  type      = string
-  sensitive = true
 }
 
 variable "mysql_database_name" {
