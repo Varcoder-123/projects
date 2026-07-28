@@ -10,7 +10,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "mysql_dns_link" {
   virtual_network_id    = var.vnet_id
 }
 
-resource "azurerm_mysql_flexible_server" "mysql" {
+resource "azurerm_mysql_flexible_server" "mysql" { //This resource creates a MySQL flexible server in Azure.
   name                = var.mysql_server_name
   resource_group_name = var.resource_group_name
   location            = var.location
@@ -34,7 +34,7 @@ resource "azurerm_mysql_flexible_server" "mysql" {
   ]
 }
 
-resource "azurerm_mysql_flexible_database" "appdb" {
+resource "azurerm_mysql_flexible_database" "appdb" { //This resource creates a MySQL database within the flexible server.
   name                = var.mysql_database_name
   server_name         = azurerm_mysql_flexible_server.mysql.name
   resource_group_name = var.resource_group_name
