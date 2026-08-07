@@ -1,9 +1,10 @@
-resource "azurerm_private_dns_zone" "mysql_dns" {
+resource "azurerm_private_dns_zone" "mysql_dns" { //This resource creates a private DNS zone for the MySQL server.
   name                = var.mysql_dns_name
   resource_group_name = var.resource_group_name
 }
 
-resource "azurerm_private_dns_zone_virtual_network_link" "mysql_dns_link" {
+
+resource "azurerm_private_dns_zone_virtual_network_link" "mysql_dns_link" { //This resource links the private DNS zone to the virtual network.
   name                  = var.mysql_dns_link_name
   private_dns_zone_name = azurerm_private_dns_zone.mysql_dns.name
   resource_group_name   = var.resource_group_name
